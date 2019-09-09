@@ -1,4 +1,5 @@
 import pygame
+import random
 
 def main():
     width = 500
@@ -34,24 +35,15 @@ class Game(pygame.sprite.Sprite):
         #loop for map / level 
         #timer 
         #sprite collision 
+        player = Player()
+        hits_block = pygame.sprite.groupcollide(player, roadblocksGroup, True) 
+            for block in hit_blocks: 
+                # timer reduced by 5 seconds 
 
 
-  player = Player([0, 50])
-    player.move = [pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN]
-    player.vx = 5
-    player.vy = 5
- hit = pygame.sprite.spritecollide(player, road_blocks, False)
-            if len(hit) != last and len(hit) > 0: # will only check for initial collision
-                # DEFINE BLOCK (Maybe the "Road Class" in road_blocks file)
-                for block in hit:  
-                    if 'Car' in str(thing):
-                        block.sound.play()
-                        # Car reduces time clock 
-                        
-                    elif 'Truck' in str(thing):
-                        block.sound.play()
-                        player.player_health -= 1
 
+
+        
 
 
 
