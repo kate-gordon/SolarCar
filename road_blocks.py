@@ -69,16 +69,22 @@ class Car(Roadblock):
 
 
    
-# class Truck(Roadblock): 
-#     def __init__(self, image): 
-#         self.rect = self.image.get_rect()
-#         self.image_original = image
-#         self.rect = self.image.get_rect()
-#         self.rect.x = GAME_WIDTH
-#         self.rect.y = random.randint(self.size[1], (GAME_HEIGHT-self.size[1]))
-#     def update(self): 
-#         self.rect.move_ip(-self.speed, 0)
-#         if self.rect.right < 0:
-#             self.kill()
+class Truck(Roadblock): 
+    def __init__(self, image): 
+        self.rect = self.image.get_rect()
+        self.image_original = image
+        self.rect = self.image.get_rect()
+        self.rect.x = GAME_WIDTH
+        self.rect.y = random.randint(self.size[1], (GAME_HEIGHT-self.size[1]))
+    def move_object(self):
+        if self.rect.x  <= 0 - self.size[0]:
+            self.randomize_size = random.randint(10,100)
+            self.size = [self.randomize_size*3,self.randomize_size]
+            self.image = pygame.transform.scale(self.image_original, (self.size[0], self.size[1]))
+            self.rect = self.image.get_rect()
+            self.rect.x = GAME_WIDTH
+            self.rect.y = random.randint(self.size[1], (GAME_HEIGHT-self.size[1]))
+        else:
+            self.rect.x -= self.speed
 
 

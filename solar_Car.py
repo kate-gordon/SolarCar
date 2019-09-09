@@ -19,16 +19,17 @@ all_sprites.add(roadblocksGroup)
 player = Player()
 
 def main():
-    width = 500
-    height = 500
+    width = 1152
+    height = 648
     blue_color = (97, 159, 182)
 
     pygame.init()
     screen = pygame.display.set_mode((width, height))
-    
+
     clock = pygame.time.Clock()
 
-class Game(pygame.sprite.Sprite): 
+    # Game initialization
+class Game(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         pygame.init()
@@ -38,14 +39,27 @@ class Game(pygame.sprite.Sprite):
         self.status = ''
         self.background = ''
 
-    # def intro_screen(self): 
-    
-    # def lose_screen(self): 
-    
-    # def win_screen(self): 
-    
-    def wait_for_screen(self): 
-        self.screen.blit(self.background,[0,0])
+    def intro_screen(self):
+        self.background = solar_car_pygame.load('background_start_pygame_;').convert_alpha()
+        self.background = solar_car_pygame.transform.scale(self.background,[Game_WIDTH, Game_HEIGHT])
+        self.wait_for_screen()
+
+    def Game_Over(self):
+        self.background = solar_car_pygame.image.load('background_end_GameOver').convert_alpha()
+        self.background = solar_car_pygame.transform.scale(self.background,[Game_WIDTH, Game_HEIGHT])
+        self.status = 'GAME Over'
+        self.wait_for_screen()
+
+
+    def win_screen(self):
+        self.background = solar_car_pygame.image.load('pygame_you win').convert_alpha()
+        # self.background = solar_car_pygame.transfer.scale(self.background, [Game_WIDTH, Game_HEIGHT])
+        # self.status = 'Win'
+        # self.wait_for_screen()
+
+
+    def wait_for_screen(self):
+        self.screen.bilt(self.background,[0,0])
         while self.run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
