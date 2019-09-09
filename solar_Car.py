@@ -1,6 +1,11 @@
 import pygame
 import random
+from global_constants import *
 
+
+all_sprites = pygame.sprite.Group()
+all_sprites.add(playerGroup)
+all_sprites.add(roadblocksGroup)
 def main():
     width = 500
     height = 500
@@ -11,7 +16,6 @@ def main():
     
     clock = pygame.time.Clock()
 
-    # Game initialization
 class Game(pygame.sprite.Sprite): 
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -31,49 +35,27 @@ class Game(pygame.sprite.Sprite):
     def wait_for_screen(self): 
     
     def run_game(self): 
-        #load map
-        #loop for map / level 
-        #timer 
-        #sprite collision 
-        player = Player()
-        hits_block = pygame.sprite.groupcollide(player, roadblocksGroup, True) 
-            for block in hit_blocks: 
-                # timer reduced by 5 seconds 
 
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    pygame.time.set_timer(ADDBLOCK, 250)
     stop_game = False
     while not stop_game:
         for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                    running = False
+        elif event.type == QUIT:
+            running = False
+        elif(event.type == ADDBLOCK):
+            new_roadblock = Roadblock()
+            roadblocksGroup.add(new_roadblock)
+            all_sprites.add(new_enemy)
 
-            # Event handling
-
-            if event.type == pygame.QUIT:
-                stop_game = True
-
-
-        # Game logic
-
-        # Draw background
+        player = Player()
+        hits_block = pygame.sprite.groupcollide(player, roadblocksGroup, True) 
+            for block in hit_blocks: 
+                # timer reduced by 5 seconds
+    
         screen.fill(blue_color)
-
-        # Game display
 
         pygame.display.update()
         clock.tick(60)

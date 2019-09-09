@@ -9,4 +9,4 @@ class Player(pygame.sprite.Sprite):
         self.rect.x += 5
 
 playerGroup = pygame.sprite.Group() 
-playGroup.add(Player)
+playerGroup.add(Player)
