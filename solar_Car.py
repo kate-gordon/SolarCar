@@ -20,7 +20,7 @@ class Game(pygame.sprite.Sprite):
         self.run = True
         self.status = ''
         self.background = ''
-        
+
     def intro_screen(self): 
     
     def lose_screen(self): 
@@ -30,6 +30,40 @@ class Game(pygame.sprite.Sprite):
     def wait_for_screen(self): 
     
     def run_game(self): 
+        #load map
+        #loop for map / level 
+        #timer 
+        #sprite collision 
+
+
+  player = Player([0, 50])
+    player.move = [pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN]
+    player.vx = 5
+    player.vy = 5
+ hit = pygame.sprite.spritecollide(player, road_blocks, False)
+            if len(hit) != last and len(hit) > 0: # will only check for initial collision
+                # DEFINE BLOCK (Maybe the "Road Class" in road_blocks file)
+                for block in hit:  
+                    if 'Car' in str(thing):
+                        block.sound.play()
+                        # Car reduces time clock 
+                        
+                    elif 'Truck' in str(thing):
+                        block.sound.play()
+                        player.player_health -= 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     stop_game = False
