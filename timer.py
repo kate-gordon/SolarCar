@@ -1,7 +1,6 @@
 import pygame
 from global_constants import *
 
-
 pygame.init()
 screen = pygame.display.set_mode((GAME_WIDTH, GAME_HEIGHT))
 clock = pygame.time.Clock()

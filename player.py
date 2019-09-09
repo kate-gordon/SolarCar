@@ -48,7 +48,7 @@ class Player(pygame.sprite.Sprite):
             self.move_image += 1
 
 #Test this in the file
-player = Player(185, GAME_HEIGHT/2)
+# player = Player(185, GAME_HEIGHT/2)
 
 #playerGroup = pygame.sprite.Group() 
 #playerGroup.add(Player)
