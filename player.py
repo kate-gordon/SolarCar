@@ -7,3 +7,6 @@ class Player(pygame.sprite.Sprite):
         self.rect.center = (WIDTH / 2, HEIGHT / 2)
      def update(self):
         self.rect.x += 5
+
+playerGroup = pygame.sprite.Group() 
+playGroup.add(Player)
