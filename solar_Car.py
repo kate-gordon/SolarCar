@@ -135,19 +135,16 @@ class Game(pygame.sprite.Sprite):
             # check if we need intro screen
             if game.run_intro:
                 game.intro_screen()
-                
-        
-        
+            
             elapsed_second = int(time.strftime("%S", time.gmtime()))
             elapsed_minute = int(time.strftime("%M", time.gmtime()))
             minute_timer = elapsed_minute - minute_start
             second_timer = 60 - (elapsed_second - second_start + (minute_timer * 60))
-
+            
             ADDBLOCK = pygame.USEREVENT + 1
             pygame.time.set_timer(ADDBLOCK, 1500)
-            running = True
+            
             while running:
-            #clock.tick(FPS)
                 for event in pygame.event.get():
                     if event.type == KEY_UP:
                         if event.key == K_ESCAPE:
@@ -157,15 +154,28 @@ class Game(pygame.sprite.Sprite):
                     elif(event.type == ADDBLOCK):
                         new_block = Roadblock()
                         all_sprites.add(new_block)
-                playerGroup.update()
-                playerGroup.draw(self.screen)
                 all_sprites.update()
-                self.screen.fill(BLACK)
+                #self.screen.fill(BLACK)
                 all_sprites.draw(self.screen)
                 pygame.display.flip()
-                #pygame.display.update()
+                pygame.display.update()
+                
+                playerGroup.update()
+                playerGroup.draw(self.screen)
         
-            #pygame.quit()
+                # Draw background
+                background_image.render()
+                background_image.update()
+
+                # Game display
+                playerGroup.draw(self.screen)
+                draw_text(self.screen,('Time Left: %d' % (second_timer)), 25, GAME_WIDTH-118, 25,(105,105,105))
+
+                #running = True
+                #$while running:
+                #clock.tick(FPS)
+        
+        pygame.quit()
             #break
 
 #            ADDBLOCK = pygame.USEREVENT +1
@@ -188,19 +198,13 @@ class Game(pygame.sprite.Sprite):
             #playerGroup.update()
             #clock.tick(60)
 
-            # Draw background
-            background_image.render()
-            background_image.update()
             
 
-            # Game display
-            playerGroup.draw(self.screen)
-            draw_text(self.screen,('Time Left: %d' % (second_timer)), 25, GAME_WIDTH-118, 25,(105,105,105))
-            
-            pygame.display.update()
+        
+    #pygame.display.update()
             
 
-        pygame.quit()
+#pygame.quit()
 
 if __name__ == '__main__':
     game = Game()
