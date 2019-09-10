@@ -9,5 +9,15 @@ Objective: Build a solar powered car game that, when initialized:
 5. If car gets stuck behind another vehicle, timer is affected.
 6. If you pass the finish line, you go on to the next level!
 
+WHERE WE WOULD LIKE TO GO NEXT ... 
+
+Completing step 6: Figuring out timed gameplay & establishment of finish line 
+Establish barriers as "Marta" Trains
+Cars bound to their own lanes as they randomize 
+Background sound & car collision sound 
+
+
+
+
 
 -  

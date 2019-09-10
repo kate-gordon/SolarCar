@@ -47,12 +47,12 @@ class Player(pygame.sprite.Sprite):
 
     barrier_top = 22
     barrier_bottom = 580
-        if self.rect.y >= barrier_top and self.rect.y <= barrier_bottom:
-            self.rect.y += self.speed_y
-        elif self.rect.y < barrier_top:
-            self.rect.y = barrier_top
-        elif self.rect.y > barrier_bottom:
-            self.rect.y = barrier_bottom
+    if self.rect.y >= barrier_top and self.rect.y <= barrier_bottom:
+        self.rect.y += self.speed_y
+    elif self.rect.y < barrier_top:
+        self.rect.y = barrier_top
+    elif self.rect.y > barrier_bottom:
+        self.rect.y = barrier_bottom
 
 
         # Movement Animation
