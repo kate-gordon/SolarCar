@@ -1,11 +1,18 @@
 import pygame
 import time
+import random
+from global_constants import *
+from pygame.locals import *
+from road_blocks import * 
+
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
-
-        pygame.sprite.Sprite.__init__(self)
-        self.x = x
+        super(Player, self).__init__()
+        self.image = pygame.Surface((50, 50))
+        self.image.fill(GREEN)
+        self.rect = self.image.get_rect()
+        self.speed = 0
         self.y = y
         self.size = [200,200]
         self.speed_y = 0
@@ -23,11 +30,16 @@ class Player(pygame.sprite.Sprite):
         for i in range(len(self.images)):
             self.images[i] = pygame.transform.scale(self.images[i], (self.size[0], self.size[1]))
 
-        self.image = self.images[self.index]
-        self.rect = self.image.get_rect()
-        self.rect.center = [self.x, self.y]
-
+# New code
+    def move_down(self, pixels): 
+        self.rect.y -= pixels
+    def move_up(self, pixels): 
+        self.rect.y += pixels
+    def moveForward(self, speed):
+        self.rect.y -= self.speed 
     def update(self):
+      
+      # original code
 
         barrier_top = 22
         barrier_bottom = 580
@@ -70,4 +82,8 @@ class Player(pygame.sprite.Sprite):
 #     def update(self):
 #        self.rect.x += 5
 #
+        self.rect.move_ip(self.speed, 0)
+        if self.rect.left < 0:
+            self.kill()
+
 
