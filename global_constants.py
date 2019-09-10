@@ -1,4 +1,4 @@
 # Constants and global variables
 
-GAME_WIDTH = 1152
-GAME_HEIGHT = 648
+GAME_WIDTH = 1800
+GAME_HEIGHT = 1013
