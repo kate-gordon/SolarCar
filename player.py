@@ -14,9 +14,9 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.speed = 1
         self.y = y
+        self.size = [200,200]
         self.x = x
         
-        self.size = [250,50]
         self.speed_y = 0
         self.radius = 50
         self.index = 0
@@ -29,8 +29,8 @@ class Player(pygame.sprite.Sprite):
         for i in range(2):
             self.images.append(pygame.image.load('My_images/Car%d.png' % i))
 
-        #for i in range(len(self.images)):
-        #    self.images[i] = pygame.transform.scale(self.images[i], (self.size[0], self.size[1]))
+        for i in range(len(self.images)):
+            self.images[i] = pygame.transform.scale(self.images[i], (self.size[0], self.size[1]))
 
 # New code
     def move_down(self, pixels): 
