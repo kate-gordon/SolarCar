@@ -16,10 +16,10 @@ class Player(pygame.sprite.Sprite):
         self.images = []
 
         for i in range(2):
-            self.images.append(pygame.image.load('My_images/car%d.png' % i))
+            self.images.append(pygame.image.load('My_images/Car%d.png' % i))
 
-        for i in range(len(self.images)):
-            self.images[i] = pygame.transform.scale(self.images[i], (self.size[0], self.size[1]))
+        #for i in range(len(self.images)):
+        #    self.images[i] = pygame.transform.scale(self.images[i], (self.size[0], self.size[1]))
 
         self.image = self.images[self.index]
         self.rect = self.image.get_rect()
