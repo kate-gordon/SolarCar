@@ -12,9 +12,11 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.Surface((50, 50))
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
-        self.speed = 0
+        self.speed = 1
         self.y = y
         self.size = [200,200]
+        self.x = x
+        
         self.speed_y = 0
         self.radius = 50
         self.index = 0
@@ -38,12 +40,13 @@ class Player(pygame.sprite.Sprite):
     def moveForward(self, speed):
         self.rect.y -= self.speed 
     def update(self):
-      
+        self.rect.move_ip(self.speed, 0)
+        if self.rect.left < 0:
+            self.kill()
       # original code
 
-        barrier_top = 22
-        barrier_bottom = 580
-
+    barrier_top = 22
+    barrier_bottom = 580
         if self.rect.y >= barrier_top and self.rect.y <= barrier_bottom:
             self.rect.y += self.speed_y
         elif self.rect.y < barrier_top:
@@ -66,24 +69,6 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.move_image += 1
 
-#Test this in the file
-# player = Player(185, GAME_HEIGHT/2)
-
-#playerGroup = pygame.sprite.Group() 
-#playerGroup.add(Player)
-
-#Existing Code
-
-#        pygame.sprite.Sprite.__init__(self)
-#        self.image = pygame.Surface((50, 50))
-#        self.image.fill(GREEN)
-#        self.rect = self.image.get_rect()
-#        self.rect.center = (WIDTH / 2, HEIGHT / 2)
-#     def update(self):
-#        self.rect.x += 5
-#
-        self.rect.move_ip(self.speed, 0)
-        if self.rect.left < 0:
-            self.kill()
+       
 
 
