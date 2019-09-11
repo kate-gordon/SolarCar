@@ -74,6 +74,11 @@ class Game(pygame.sprite.Sprite):
         # Moving Background calling background.py file
         background_image = Background(self.screen)
         
+        # Main Music
+        pygame.mixer.music.load('sounds/out_of_my_dreams.mp3')
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.2)
+
         # Instantiatation 
         vehicles = []
         #all_sprites = pygame.sprite.Group()
