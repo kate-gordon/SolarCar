@@ -7,7 +7,7 @@ GREEN = (0, 255, 0)
 class Roadblock(pygame.sprite.Sprite): 
     def __init__ (self): 
         super(Roadblock, self).__init__()
-        self.image = pygame.Surface((50, 50))
+        self.image = pygame.Surface((80, 80))
         self.image.fill(GREEN)
         self.randomize_size = random.randint(10,100)
         self.size = [self.randomize_size*3,self.randomize_size]

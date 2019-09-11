@@ -14,7 +14,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.speed = 1
         self.y = y
-        self.size = [200,200]
+        self.size = [100,100]
         self.x = x
         
         self.speed_y = 0
@@ -45,14 +45,14 @@ class Player(pygame.sprite.Sprite):
             self.kill()
       # original code
 
-    barrier_top = 22
-    barrier_bottom = 580
-        if self.rect.y >= barrier_top and self.rect.y <= barrier_bottom:
-            self.rect.y += self.speed_y
-        elif self.rect.y < barrier_top:
-            self.rect.y = barrier_top
-        elif self.rect.y > barrier_bottom:
-            self.rect.y = barrier_bottom
+    #barrier_top = 22
+    #barrier_bottom = 580
+    #if self.rect.y >= barrier_top and self.rect.y <= barrier_bottom:
+    #    self.rect.y += self.speed_y
+    #elif self.rect.y < barrier_top:
+    #    self.rect.y = barrier_top
+    #elif self.rect.y > barrier_bottom:
+    #    self.rect.y = barrier_bottom
 
 
         # Movement Animation
